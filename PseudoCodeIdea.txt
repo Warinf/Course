@@ -1,0 +1,17 @@
+
+Analysing Thermal shift data to find out melting temperature of the protein
+
+First: Normalize data points
+
+Formula: MC= mc-min(MC)/max(MC)-min(MC)
+
+How it should run:
+
+Import load/data
+    Max(number)
+	Min(number)
+	
+For each data point i
+     (i-min)/(max-min)
+	 
+Find y=0.5	 
