@@ -1,7 +1,10 @@
 import csv
 
-with open('test.csv', 'r') as f:
-  reader = csv.reader(f)
-  your_list = list(reader)
+import pandas as pd
 
-  print(your_list)
+df = pd.read_csv('test.csv', sep=',')
+print(df)
+
+
+
+
