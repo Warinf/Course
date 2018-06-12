@@ -41,7 +41,7 @@ d5 = d4.abs()
 d6 = d5.idxmin()
 
 print(d6)
-
+d6.to_csv('Results.csv')
 d6.plot(kind='bar')
 plt.show()
 
