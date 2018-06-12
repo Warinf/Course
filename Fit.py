@@ -21,7 +21,7 @@ print(df)
 df.plot(x='Temperature')
 plt.show()
 
-y = input('First temperature')
+y = input('Enter temperature')
 d1 = df[df['Temperature'] >= int(y)]
 a = input('Second temperature')
 d2 = d1[d1['Temperature'] <= int(a)]
@@ -32,18 +32,12 @@ for i in colnames2:
 main = d2.plot(x='Temperature')
 line = plt.axhline(y=0.5, color='black', linestyle='-')
 
-
-plt.show()
-d3 = d2.set_index(['Temperature'])
-d4= d3- 0.5
-
-d5 = d4.abs()
-d6 = d5.idxmin()
-
-print(d6)
-
-d6.plot(kind='bar')
 plt.show()
 
+maxwell = stats.maxwell
+
+for column in d2.columns:
+     params= maxwell.fit(d2.columns, floc=0)
+     print(params)
 
 
