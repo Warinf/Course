@@ -15,9 +15,9 @@ print(df)
 df.plot(x='Temperature')
 plt.show()
 
-y = input('First temperature')
+y = input('First temperature\n? ')
 d1 = df[df['Temperature'] >= int(y)]
-a = input('Second temperature')
+a = input('Second temperature\n? ')
 d2 = d1[d1['Temperature'] <= int(a)]
 
 colnames2 = list(d2.columns)
