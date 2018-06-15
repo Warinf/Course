@@ -1,9 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import scipy.stats as stats
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy.stats import maxwell
 
 
 df = pd.read_csv('test.csv', header=0, sep=',')
