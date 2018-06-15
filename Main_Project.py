@@ -6,15 +6,13 @@ import numpy as np
 from scipy.stats import maxwell
 
 
-df = pd.read_csv('test.csv', header=0, sep=',' )
+df = pd.read_csv('test.csv', header=0, sep=',')
 
 colnames = list(df.columns)
 print(colnames)
 colnames.pop(0)
 for i in colnames:
-
-    df[i]= (df[i] - df[i].min()) / (df[i].max() - df[i].min())
-
+    df[i] = (df[i] - df[i].min()) / (df[i].max() - df[i].min())
 
 
 print(df)
@@ -36,7 +34,7 @@ print(d2)
 
 plt.show()
 d3 = d2.set_index(['Temperature'])
-d4 = d3- 0.5
+d4 = d3 - 0.5
 d5 = d4.abs()
 d6 = d5.idxmin()
 
@@ -44,6 +42,3 @@ print(d6)
 d6.to_csv('Results.csv')
 d6.plot(kind='bar')
 plt.show()
-
-
-
