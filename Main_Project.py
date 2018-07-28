@@ -4,7 +4,7 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import maxwell
-
+import mplcursors
 
 df = pd.read_csv('test.csv', header=0, sep=',' )
 
@@ -33,12 +33,13 @@ for col in colnames2:
 main = d2.plot(x='Temperature')
 line = plt.axhline(y=0.5, color='black', linestyle='-')
 print(d2)
-
+mplcursors.cursor()
 plt.show()
 d3 = d2.set_index(['Temperature'])
 d4 = d3- 0.5
 d5 = d4.abs()
 d6 = d5.idxmin()
+
 
 print(d6)
 d6.to_csv('Results.csv')
