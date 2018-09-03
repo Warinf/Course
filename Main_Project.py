@@ -6,19 +6,20 @@ import numpy as np
 from scipy.stats import maxwell
 import mplcursors
 
-df = pd.read_csv('test.csv', header=0, sep=',' )
-
-colnames = list(df.columns)
+df = pd.read_excel('test1.xlsx', sheetname='test2')
+d8=df
+colnames = list(d8.columns)
 print(colnames)
 colnames.pop(0)
 for i in colnames:
 
-    df[i]= (df[i] - df[i].min()) / (df[i].max() - df[i].min())
+    d8[i]= (d8[i] - d8[i].min()) / (d8[i].max() - d8[i].min())
 
 
 
-print(df)
-df.plot(x='Temperature')
+print(d8)
+d8.plot(x='Temperature')
+mplcursors.cursor()
 plt.show()
 
 y = input('First temperature')
@@ -35,15 +36,17 @@ line = plt.axhline(y=0.5, color='black', linestyle='-')
 print(d2)
 mplcursors.cursor()
 plt.show()
-d3 = d2.set_index(['Temperature'])
-d4 = d3- 0.5
-d5 = d4.abs()
-d6 = d5.idxmin()
+c = input('Cutoff')
+d3 = d2[d2['Temperature'] <= int(c)]
+d4 = d3.set_index(['Temperature'])
+d5 = d4- 0.5
+d6 = d5.abs()
+d7 = d6.idxmin()
 
 
-print(d6)
-d6.to_csv('Results.csv')
-d6.plot(kind='bar')
+print(d7)
+d7.to_csv('Results.csv')
+d7.plot(kind='bar')
 plt.show()
 
 
